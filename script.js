@@ -41,6 +41,9 @@ let rows = [
 // AUTUMN 2026
 // ========================================
 
+// IMPORTANT:
+// এখানে তোমার আগের সম্পূর্ণ eeeCourses array paste করবে.
+
 const eeeCourses = [
 
     // =========================================
@@ -699,10 +702,16 @@ const eeeCourses = [
     }
 
 ];
+
+
+// ========================================
+// TEACHER LIST
+// ========================================
+
 const eeeTeachers = [
     {
         name: "Engr. Sk. Md. Golam Mostafa",
-        designation: "Associate Professor "
+        designation: "Associate Professor"
     },
     {
         name: "Dr. Sikder Sunbeam Islam",
@@ -889,34 +898,48 @@ function populateCourseList() {
 
             currentSemester = course.semester;
 
-            const group = document.createElement("optgroup");
+            const group =
+                document.createElement("optgroup");
 
             group.label = currentSemester;
 
             select.appendChild(group);
         }
 
-        const group = Array.from(
-            select.querySelectorAll("optgroup")
-        ).find(
-            g => g.label === course.semester
-        );
+        const group =
+            Array.from(
+                select.querySelectorAll("optgroup")
+            ).find(
+                g => g.label === course.semester
+            );
 
-        const option = document.createElement("option");
+        const option =
+            document.createElement("option");
 
         option.value = course.id;
 
         option.textContent =
             `${course.code} — ${course.title} [${course.department}]`;
 
-        option.dataset.code = course.code;
-        option.dataset.title = course.title;
-        option.dataset.department = course.department;
+        option.dataset.code =
+            course.code;
+
+        option.dataset.title =
+            course.title;
+
+        option.dataset.department =
+            course.department;
 
         group.appendChild(option);
 
     });
 }
+
+
+// ========================================
+// POPULATE TEACHER DROPDOWN
+// ========================================
+
 function populateTeacherList() {
 
     const select = $("teacherSelect");
@@ -931,19 +954,25 @@ function populateTeacherList() {
 
     eeeTeachers.forEach((teacher, index) => {
 
-        const option = document.createElement("option");
+        const option =
+            document.createElement("option");
 
         option.value = index;
 
         option.textContent =
             `${teacher.name} — ${teacher.designation}`;
 
-        option.dataset.name = teacher.name;
-        option.dataset.designation = teacher.designation;
+        option.dataset.name =
+            teacher.name;
+
+        option.dataset.designation =
+            teacher.designation;
 
         select.appendChild(option);
+
     });
 }
+
 
 // ========================================
 // COURSE SELECTION
@@ -955,21 +984,27 @@ function handleCourseSelection() {
 
     if (!select) return;
 
+    const selectedCourse =
+        eeeCourses.find(
+            course => course.id === select.value
+        );
 
-    const selectedCourse = eeeCourses.find(
-        course => course.id === select.value
-    );
 
-
-    // If no course selected
+    // No course selected
     if (!selectedCourse) {
 
-        $("courseCode").value = "";
+        if ($("courseCode")) {
+            $("courseCode").value = "";
+        }
 
-        $("courseTitle").value = "";
+        if ($("courseTitle")) {
+            $("courseTitle").value = "";
+        }
 
-        $("courseDepartment").value =
-            "Department of Electrical and Electronic Engineering (EEE)";
+        if ($("courseDepartment")) {
+            $("courseDepartment").value =
+                "Department of Electrical and Electronic Engineering (EEE)";
+        }
 
         updatePreview();
 
@@ -978,14 +1013,26 @@ function handleCourseSelection() {
 
 
     // Automatically fill course details
-    $("courseCode").value =
-        selectedCourse.code;
+    if ($("courseCode")) {
 
-    $("courseTitle").value =
-        selectedCourse.title;
+        $("courseCode").value =
+            selectedCourse.code;
 
-    $("courseDepartment").value =
-        "Department of Electrical and Electronic Engineering (EEE)";
+    }
+
+    if ($("courseTitle")) {
+
+        $("courseTitle").value =
+            selectedCourse.title;
+
+    }
+
+    if ($("courseDepartment")) {
+
+        $("courseDepartment").value =
+            "Department of Electrical and Electronic Engineering (EEE)";
+
+    }
 
 
     updatePreview();
@@ -1001,7 +1048,10 @@ function selectType(type) {
     currentType = type;
 
 
-    // Active card
+    // ========================================
+    // ACTIVE TYPE CARD
+    // ========================================
+
     document
         .querySelectorAll(".type-card")
         .forEach(button => {
@@ -1014,41 +1064,103 @@ function selectType(type) {
         });
 
 
-    // Form visibility
-    $("labOnly").classList.toggle(
-        "hidden",
-        type !== "lab"
-    );
+    // ========================================
+    // FORM VISIBILITY
+    // ========================================
 
-    $("groupForm").classList.toggle(
-        "hidden",
-        type !== "group"
-    );
+    // Lab Report
+    if ($("labOnly")) {
 
-    $("indexForm").classList.toggle(
-        "hidden",
-        type !== "index"
-    );
+        $("labOnly").classList.toggle(
+            "hidden",
+            type !== "lab"
+        );
+
+    }
 
 
-    // Preview visibility
-    $("normalPreview").classList.toggle(
-        "hidden",
-        type === "group" || type === "index"
-    );
+    // Group Project
+    if ($("groupForm")) {
 
-    $("groupPreview").classList.toggle(
-        "hidden",
-        type !== "group"
-    );
+        $("groupForm").classList.toggle(
+            "hidden",
+            type !== "group"
+        );
 
-    $("indexPreview").classList.toggle(
-        "hidden",
-        type !== "index"
-    );
+    }
 
 
-    // Titles
+    // Lab Index
+    if ($("indexForm")) {
+
+        $("indexForm").classList.toggle(
+            "hidden",
+            type !== "index"
+        );
+
+    }
+
+
+    // Assignment Topic
+    if ($("topicField")) {
+
+        $("topicField").classList.toggle(
+            "hidden",
+            type !== "assignment"
+        );
+
+    }
+
+
+    // Group Project Title
+    if ($("projectTitleField")) {
+
+        $("projectTitleField").classList.toggle(
+            "hidden",
+            type !== "group"
+        );
+
+    }
+
+
+    // ========================================
+    // PREVIEW VISIBILITY
+    // ========================================
+
+    if ($("normalPreview")) {
+
+        $("normalPreview").classList.toggle(
+            "hidden",
+            type === "group" || type === "index"
+        );
+
+    }
+
+
+    if ($("groupPreview")) {
+
+        $("groupPreview").classList.toggle(
+            "hidden",
+            type !== "group"
+        );
+
+    }
+
+
+    if ($("indexPreview")) {
+
+        $("indexPreview").classList.toggle(
+            "hidden",
+            type !== "index"
+        );
+
+    }
+
+
+    // ========================================
+    // TITLES
+    // ========================================
+
     const names = {
 
         assignment: [
@@ -1078,21 +1190,29 @@ function selectType(type) {
     };
 
 
-    setText(
-        "detailsHeading",
-        names[type][0]
-    );
+    if (names[type]) {
 
-    setText(
-        "previewLabel",
-        names[type][1]
-    );
+        setText(
+            "detailsHeading",
+            names[type][0]
+        );
 
-    setText(
-        "docTitle",
-        names[type][2]
-    );
+        setText(
+            "previewLabel",
+            names[type][1]
+        );
 
+        setText(
+            "docTitle",
+            names[type][2]
+        );
+
+    }
+
+
+    // ========================================
+    // REFRESH
+    // ========================================
 
     renderMembers();
 
@@ -1108,17 +1228,17 @@ function selectType(type) {
 
 function renderMembers() {
 
-    const countElement = $("memberCount");
+    const countElement =
+        $("memberCount");
 
-    const box = $("memberInputs");
-
+    const box =
+        $("memberInputs");
 
     if (!countElement || !box) return;
 
 
-    const count = Number(
-        countElement.value
-    );
+    const count =
+        Number(countElement.value) || 1;
 
 
     box.innerHTML = "";
@@ -1155,7 +1275,6 @@ function renderMembers() {
                     >
 
                 </div>
-
 
                 <div>
 
@@ -1199,7 +1318,8 @@ function renderMembers() {
 
 function renderIndexRows() {
 
-    const box = $("indexRows");
+    const box =
+        $("indexRows");
 
     if (!box) return;
 
@@ -1212,8 +1332,8 @@ function renderIndexRows() {
         const div =
             document.createElement("div");
 
-
-        div.className = "index-row";
+        div.className =
+            "index-row";
 
 
         div.innerHTML = `
@@ -1358,10 +1478,9 @@ function formatDate(value) {
 
 function updatePreview() {
 
-
-    // ------------------------------------
-    // Normal Assignment / Lab Preview
-    // ------------------------------------
+    // ========================================
+    // NORMAL ASSIGNMENT / LAB PREVIEW
+    // ========================================
 
     setText(
         "pCourseCode",
@@ -1390,22 +1509,86 @@ function updatePreview() {
     );
 
 
+    // ========================================
+    // ASSIGNMENT TOPIC
+    // ========================================
+
     setText(
         "pTopic",
-
-        currentType === "lab"
-
-            ? val(
-                "topic",
-                "[EXPERIMENT TITLE]"
-            )
-
-            : val(
-                "topic",
-                "[TOPIC NAME]"
-            )
+        val(
+            "topic",
+            "[TOPIC NAME]"
+        )
     );
 
+
+    // ========================================
+    // LAB EXPERIMENT NO.
+    // ========================================
+
+    setText(
+        "pExperimentNo",
+        val(
+            "experimentNo",
+            "[EXPERIMENT NO.]"
+        )
+    );
+
+
+    // ========================================
+    // LAB EXPERIMENT NAME
+    // ========================================
+
+    setText(
+        "pExperimentName",
+        val(
+            "experimentName",
+            "[EXPERIMENT NAME]"
+        )
+    );
+
+
+    // ========================================
+    // ASSIGNMENT / LAB VISIBILITY
+    // ========================================
+
+    const isLab =
+        currentType === "lab";
+
+
+    if ($("normalTopicInfo")) {
+
+        $("normalTopicInfo").classList.toggle(
+            "hidden",
+            isLab
+        );
+
+    }
+
+
+    if ($("labExperimentNo")) {
+
+        $("labExperimentNo").classList.toggle(
+            "hidden",
+            !isLab
+        );
+
+    }
+
+
+    if ($("labExperimentName")) {
+
+        $("labExperimentName").classList.toggle(
+            "hidden",
+            !isLab
+        );
+
+    }
+
+
+    // ========================================
+    // TEACHER
+    // ========================================
 
     setText(
         "pTeacher",
@@ -1433,6 +1616,10 @@ function updatePreview() {
         )
     );
 
+
+    // ========================================
+    // STUDENT
+    // ========================================
 
     setText(
         "pStudentName",
@@ -1485,17 +1672,28 @@ function updatePreview() {
 
     setText(
         "pDate",
-
         submissionDate
             ? formatDate(submissionDate.value)
             : "________________"
     );
 
 
+    // ========================================
+    // GROUP PROJECT PREVIEW
+    // ========================================
 
-    // ------------------------------------
-    // Group Project Preview
-    // ------------------------------------
+    // IMPORTANT:
+    // Group Project-এর আলাদা Project Title
+    // এখান থেকে আসবে।
+
+    setText(
+        "gTopic",
+        val(
+            "projectTitle",
+            "[PROJECT TITLE]"
+        )
+    );
+
 
     setText(
         "gCourseCode",
@@ -1511,15 +1709,6 @@ function updatePreview() {
         val(
             "courseTitle",
             "[COURSE TITLE]"
-        )
-    );
-
-
-    setText(
-        "gTopic",
-        val(
-            "topic",
-            "[PROJECT TITLE]"
         )
     );
 
@@ -1553,60 +1742,18 @@ function updatePreview() {
 
     setText(
         "gDate",
-
         submissionDate
             ? formatDate(submissionDate.value)
             : "________________"
     );
 
 
+    // ========================================
+    // GROUP MEMBERS PREVIEW
+    // ========================================
 
-    // ------------------------------------
-    // Lab Index Preview
-    // ------------------------------------
-
-    setText(
-        "iCourseCode",
-        val(
-            "courseCode",
-            "[COURSE CODE]"
-        )
-    );
-
-
-    setText(
-        "iCourseTitle",
-        val(
-            "courseTitle",
-            "[COURSE TITLE]"
-        )
-    );
-
-
-    setText(
-        "iStudent",
-        val(
-            "studentName",
-            "[STUDENT NAME]"
-        )
-    );
-
-
-    setText(
-        "iStudentId",
-        val(
-            "studentId",
-            "[STUDENT ID]"
-        )
-    );
-
-
-
-    // ------------------------------------
-    // Group Members Preview
-    // ------------------------------------
-
-    const grid = $("groupGrid");
+    const grid =
+        $("groupGrid");
 
 
     if (grid) {
@@ -1617,7 +1764,6 @@ function updatePreview() {
         document
             .querySelectorAll(".member-name")
             .forEach((nameInput, index) => {
-
 
                 const idInput =
                     document.querySelector(
@@ -1679,10 +1825,49 @@ function updatePreview() {
     }
 
 
+    // ========================================
+    // LAB INDEX PREVIEW
+    // ========================================
 
-    // ------------------------------------
-    // Lab Index Table Preview
-    // ------------------------------------
+    setText(
+        "iCourseCode",
+        val(
+            "courseCode",
+            "[COURSE CODE]"
+        )
+    );
+
+
+    setText(
+        "iCourseTitle",
+        val(
+            "courseTitle",
+            "[COURSE TITLE]"
+        )
+    );
+
+
+    setText(
+        "iStudent",
+        val(
+            "studentName",
+            "[STUDENT NAME]"
+        )
+    );
+
+
+    setText(
+        "iStudentId",
+        val(
+            "studentId",
+            "[STUDENT ID]"
+        )
+    );
+
+
+    // ========================================
+    // LAB INDEX TABLE
+    // ========================================
 
     const tbody =
         $("indexPreviewBody");
@@ -1708,13 +1893,12 @@ function updatePreview() {
             i++
         ) {
 
-
             const row =
                 rows[i] || {
 
-                    no: String(
-                        i + 1
-                    ).padStart(2, "0"),
+                    no:
+                        String(i + 1)
+                            .padStart(2, "0"),
 
                     name: "",
 
@@ -1732,7 +1916,8 @@ function updatePreview() {
                 <td>
                     ${escapeHtml(
                         row.no ||
-                        String(i + 1).padStart(2, "0")
+                        String(i + 1)
+                            .padStart(2, "0")
                     )}
                 </td>
 
@@ -1904,7 +2089,7 @@ function resetAll() {
     );
 
 
-    // Clear inputs
+    // Clear all inputs
     document
         .querySelectorAll("input")
         .forEach(element => {
@@ -1945,9 +2130,9 @@ function resetAll() {
             { length: 10 },
             (_, index) => ({
 
-                no: String(
-                    index + 1
-                ).padStart(2, "0"),
+                no:
+                    String(index + 1)
+                        .padStart(2, "0"),
 
                 name: "",
 
@@ -1988,7 +2173,9 @@ function resetAll() {
 // ========================================
 
 
-// Document type cards
+// ========================================
+// DOCUMENT TYPE CARDS
+// ========================================
 
 document
     .querySelectorAll(".type-card")
@@ -2008,7 +2195,9 @@ document
     });
 
 
-// Form input changes
+// ========================================
+// FORM INPUT CHANGES
+// ========================================
 
 document
     .querySelectorAll(
@@ -2029,7 +2218,9 @@ document
     });
 
 
-// Course dropdown
+// ========================================
+// COURSE DROPDOWN
+// ========================================
 
 if ($("courseSelect")) {
 
@@ -2042,7 +2233,64 @@ if ($("courseSelect")) {
 }
 
 
-// Member count
+// ========================================
+// TEACHER DROPDOWN
+// ========================================
+
+if ($("teacherSelect")) {
+
+    $("teacherSelect")
+        .addEventListener(
+            "change",
+            function () {
+
+                const selected =
+                    this.options[this.selectedIndex];
+
+
+                if (!this.value) {
+
+                    if ($("teacherName")) {
+                        $("teacherName").value = "";
+                    }
+
+                    if ($("designation")) {
+                        $("designation").value = "";
+                    }
+
+                    updatePreview();
+
+                    return;
+                }
+
+
+                if ($("teacherName")) {
+
+                    $("teacherName").value =
+                        selected.dataset.name || "";
+
+                }
+
+
+                if ($("designation")) {
+
+                    $("designation").value =
+                        selected.dataset.designation || "";
+
+                }
+
+
+                updatePreview();
+
+            }
+        );
+
+}
+
+
+// ========================================
+// MEMBER COUNT
+// ========================================
 
 if ($("memberCount")) {
 
@@ -2061,7 +2309,9 @@ if ($("memberCount")) {
 }
 
 
-// Add lab index row
+// ========================================
+// ADD LAB INDEX ROW
+// ========================================
 
 if ($("addRow")) {
 
@@ -2072,9 +2322,9 @@ if ($("addRow")) {
 
                 rows.push({
 
-                    no: String(
-                        rows.length + 1
-                    ).padStart(2, "0"),
+                    no:
+                        String(rows.length + 1)
+                            .padStart(2, "0"),
 
                     name: "",
 
@@ -2093,7 +2343,9 @@ if ($("addRow")) {
 }
 
 
-// Save button
+// ========================================
+// SAVE BUTTON
+// ========================================
 
 if ($("saveBtn")) {
 
@@ -2106,7 +2358,9 @@ if ($("saveBtn")) {
 }
 
 
-// Reset button
+// ========================================
+// RESET BUTTON
+// ========================================
 
 if ($("resetBtn")) {
 
@@ -2119,20 +2373,28 @@ if ($("resetBtn")) {
 }
 
 
-// Print button
+// ========================================
+// PRINT BUTTON
+// ========================================
 
 if ($("printBtn")) {
 
     $("printBtn")
         .addEventListener(
             "click",
-            () => window.print()
+            () => {
+
+                window.print();
+
+            }
         );
 
 }
 
 
-// Menu button
+// ========================================
+// MENU BUTTON
+// ========================================
 
 if ($("menuBtn")) {
 
@@ -2150,41 +2412,23 @@ if ($("menuBtn")) {
         );
 
 }
-$("teacherSelect").addEventListener("change", function () {
 
-    const selected =
-        this.options[this.selectedIndex];
-
-    if (!this.value) {
-
-        $("teacherName").value = "";
-        $("designation").value = "";
-
-        updatePreview();
-        return;
-    }
-
-    $("teacherName").value =
-        selected.dataset.name || "";
-
-    $("designation").value =
-        selected.dataset.designation || "";
-
-    updatePreview();
-});
 
 // ========================================
 // INITIALIZE APPLICATION
 // ========================================
 
-// VERY IMPORTANT:
 // Course list must be created BEFORE
 // loading saved draft.
 
 populateCourseList();
+
 populateTeacherList();
 
 loadDraft();
+
 renderMembers();
+
 renderIndexRows();
+
 updatePreview();
