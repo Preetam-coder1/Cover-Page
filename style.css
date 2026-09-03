@@ -563,6 +563,7 @@ select {
     width: 794px;
     min-width: 794px;
     height: 1123px;
+    position: relative;
 
     padding: 32px;
 
@@ -658,27 +659,40 @@ select {
 ========================================================= */
 
 .info-table {
-    width: 78%;
-    margin: auto;
+    width: 94%;
+    margin: 0 auto;
 }
 
-
 .info-table > div {
-    display: grid;
-
-    grid-template-columns: 150px 1fr;
+    display: flex;
+    align-items: flex-start;
 
     margin: 9px 0;
 
     font-size: 13px;
+    line-height: 1.3;
+
+    white-space: nowrap;
 }
 
+.info-table > div > b {
+    width: 150px;
+    flex-shrink: 0;
 
-.info-table em,
-.student-table em {
+    white-space: nowrap;
+}
+
+.info-table > div > span {
+    display: flex;
+    align-items: flex-start;
+
+    white-space: nowrap;
+}
+
+.info-table em {
     font-style: normal;
+    white-space: nowrap;
 }
-
 
 /* =========================================================
    15. SUBMITTED TO / TEACHER
@@ -1087,4 +1101,149 @@ select {
         margin: 0;
     }
 
+}
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+    margin-top: 50px;
+    background: #111827;
+    color: #d1d5db;
+    border-top: 1px solid #374151;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+
+.footer-section h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+
+
+.footer-section p {
+    margin: 0 0 10px;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+.developer-name {
+    color: #ffffff;
+    font-size: 17px !important;
+    font-weight: 700;
+}
+
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.footer-section li {
+    margin-bottom: 9px;
+    font-size: 14px;
+}
+
+
+.footer-section li::before {
+    content: "✓";
+    margin-right: 8px;
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+
+/* Footer Bottom */
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 18px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+.footer-bottom strong {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   RESPONSIVE FOOTER
+========================================= */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        padding: 35px 20px;
+    }
+
+
+    .footer-bottom {
+        padding: 18px 20px;
+
+        flex-direction: column;
+        gap: 8px;
+
+        text-align: center;
+    }
+
+}
+.watermark-logo {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    object-fit: contain;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0.10;
+
+    z-index: 0;
+
+    pointer-events: none;
 }
