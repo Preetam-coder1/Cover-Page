@@ -220,18 +220,52 @@
                     </div>
 
 
-                    <label for="topic">
-                        Title / Topic Name
-                    </label>
+                    <!-- =================================
+                         ASSIGNMENT TOPIC
+                    ================================== -->
 
-                    <input
-                        id="topic"
-                        type="text"
-                        placeholder="Enter assignment topic / title"
+                    <div id="topicField">
+
+                        <label for="topic">
+                            Title / Topic Name
+                        </label>
+
+                        <input
+                            id="topic"
+                            type="text"
+                            placeholder="Enter assignment topic / title"
+                        >
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         GROUP PROJECT TITLE
+                    ================================== -->
+
+                    <div
+                        id="projectTitleField"
+                        class="hidden"
                     >
 
+                        <label for="projectTitle">
+                            Project Title
+                        </label>
 
-                    <!-- Lab Only -->
+                        <input
+                            id="projectTitle"
+                            type="text"
+                            placeholder="Enter project title"
+                        >
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         LAB ONLY
+                    ================================== -->
 
                     <div
                         id="labOnly"
@@ -245,10 +279,22 @@
                         <input
                             id="experimentNo"
                             type="text"
-                            placeholder="e.g., Experiment No. 03"
+                            placeholder="e.g., 03"
+                        >
+
+
+                        <label for="experimentName">
+                            Experiment Name
+                        </label>
+
+                        <input
+                            id="experimentName"
+                            type="text"
+                            placeholder="e.g., Verification of Ohm's Law"
                         >
 
                     </div>
+
 
                 </div>
 
@@ -332,38 +378,62 @@
                      TEACHER DETAILS
                 ================================== -->
 
- <div class="form-card">
-    <h3>Teacher Details</h3>
+                <div class="form-card">
 
-    <label for="teacherSelect">Select Teacher</label>
-    <select id="teacherSelect">
-        <option value="">-- Select EEE Teacher --</option>
-    </select>
+                    <h3>
+                        Teacher Details
+                    </h3>
 
-    <label for="teacherName">Teacher Name</label>
-    <input
-        type="text"
-        id="teacherName"
-        placeholder="Teacher Name"
-        readonly
-    >
 
-    <label for="designation">Designation</label>
-    <input
-        type="text"
-        id="designation"
-        placeholder="Designation"
-        readonly
-    >
+                    <label for="teacherSelect">
+                        Select Teacher
+                    </label>
 
-    <label for="teacherDept">Department</label>
-    <input
-        type="text"
-        id="teacherDept"
-        value="Department of Electrical and Electronic Engineering (EEE)"
-        readonly
-    >
-</div>
+                    <select id="teacherSelect">
+
+                        <option value="">
+                            -- Select EEE Teacher --
+                        </option>
+
+                    </select>
+
+
+                    <label for="teacherName">
+                        Teacher Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="teacherName"
+                        placeholder="Teacher Name"
+                        readonly
+                    >
+
+
+                    <label for="designation">
+                        Designation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="designation"
+                        placeholder="Designation"
+                        readonly
+                    >
+
+
+                    <label for="teacherDept">
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="teacherDept"
+                        value="Department of Electrical and Electronic Engineering (EEE)"
+                        readonly
+                    >
+
+                </div>
 
 
 
@@ -402,7 +472,6 @@
 
                     <div class="two-col">
 
-
                         <div>
 
                             <label for="section">
@@ -431,7 +500,6 @@
                             >
 
                         </div>
-
 
                     </div>
 
@@ -620,22 +688,18 @@
 
                         <div class="a4-border">
 
+    <img
+        src="iiuc.png"
+        class="watermark-logo"
+        alt="IIUC Logo"
+    >
 
-                            <!-- =================================
-                                 IIUC LOGO & UNIVERSITY NAME
-                            ================================== -->
-
-                            <div
-                                class="uni-logo"
-                                id="logoPreview"
-                            >
-
-                                <img
-                                    src="iiuc.png"
-                                    alt="IIUC Logo"
-                                >
-
-                            </div>
+    <div class="uni-logo" id="logoPreview">
+        <img
+            src="iiuc.png"
+            alt="IIUC Logo"
+        >
+    </div>
 
 
                             <div class="uni-bn">
@@ -667,9 +731,14 @@
                             ================================== -->
 
                             <div id="normalPreview">
-                                 <!-- Topic -->
 
-                                    <div>
+
+                                <div class="info-table">
+
+
+                                    <!-- Assignment Only -->
+
+                                    <div id="normalTopicInfo">
 
                                         <b>
                                             TOPIC NAME
@@ -681,14 +750,59 @@
                                             <em id="pTopic">
                                                 [TOPIC NAME]
                                             </em>
+
                                         </span>
 
                                     </div>
 
 
-                                <!-- Course Information -->
 
-                                <div class="info-table">
+                                    <!-- Lab Only -->
+
+                                    <div
+                                        id="labExperimentNo"
+                                        class="hidden"
+                                    >
+
+                                        <b>
+                                            EXPERIMENT NO.
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="pExperimentNo">
+                                                [EXPERIMENT NO.]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+
+
+                                    <!-- Lab Only -->
+
+                                    <div
+                                        id="labExperimentName"
+                                        class="hidden"
+                                    >
+
+                                        <b>
+                                            EXPERIMENT NAME
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="pExperimentName">
+                                                [EXPERIMENT NAME]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
 
 
                                     <!-- Course Code -->
@@ -705,6 +819,7 @@
                                             <em id="pCourseCode">
                                                 [COURSE CODE]
                                             </em>
+
                                         </span>
 
                                     </div>
@@ -725,13 +840,14 @@
                                             <em id="pCourseTitle">
                                                 [COURSE TITLE]
                                             </em>
+
                                         </span>
 
                                     </div>
 
 
 
-                                    <!-- Course Department -->
+                                    <!-- Department -->
 
                                     <div>
 
@@ -745,13 +861,10 @@
                                             <em id="pCourseDepartment">
                                                 Department of Electrical and Electronic Engineering (EEE)
                                             </em>
+
                                         </span>
 
                                     </div>
-
-
-
-                                
 
                                 </div>
 
@@ -916,6 +1029,7 @@
                                     REMARK:
                                 </div>
 
+
                             </div>
 
 
@@ -932,6 +1046,29 @@
 
                                 <div class="info-table">
 
+
+                                    <!-- Project Title -->
+
+                                    <div>
+
+                                        <b>
+                                            PROJECT TITLE
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="gTopic">
+                                                [PROJECT TITLE]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+
+
+                                    <!-- Course Code -->
 
                                     <div>
 
@@ -951,6 +1088,9 @@
                                     </div>
 
 
+
+                                    <!-- Course Title -->
+
                                     <div>
 
                                         <b>
@@ -968,27 +1108,13 @@
 
                                     </div>
 
-
-                                    <div>
-
-                                        <b>
-                                            PROJECT TITLE
-                                        </b>
-
-                                        <span>
-                                            :
-
-                                            <em id="gTopic">
-                                                [PROJECT TITLE]
-                                            </em>
-
-                                        </span>
-
-                                    </div>
-
                                 </div>
 
 
+
+                                <!-- =================================
+                                     SUBMITTED TO
+                                ================================== -->
 
                                 <div class="submitted-to">
 
@@ -1017,6 +1143,10 @@
 
 
 
+                                <!-- =================================
+                                     SUBMITTED BY
+                                ================================== -->
+
                                 <div class="group-submit">
 
                                     <u>
@@ -1032,6 +1162,8 @@
                                 </div>
 
 
+
+                                <!-- Submission Date -->
 
                                 <div class="date-row">
 
@@ -1170,6 +1302,136 @@
         </div>
 
     </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <!-- About Website -->
+
+            <div class="footer-section">
+
+                <h3>
+                    About This Website
+                </h3>
+
+                <p>
+                    IIUC EEE Cover Page Generator is an academic
+                    document platform designed to create professional
+                    cover pages for assignments, lab reports, lab
+                    indexes and group projects.
+                </p>
+
+            </div>
+
+
+
+            <!-- Developer -->
+
+            <div class="footer-section">
+
+                <h3>
+                    Developed By
+                </h3>
+
+                <p class="developer-name">
+                    Preetam Aich
+                </p>
+
+                <p>
+                    Department of Electrical and Electronic Engineering (EEE)
+                </p>
+
+                <p>
+                    International Islamic University Chittagong
+                </p>
+
+            </div>
+
+
+
+            <!-- Features -->
+
+            <div class="footer-section">
+
+                <h3>
+                    Features
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Assignment Cover Generator
+                    </li>
+
+                    <li>
+                        Lab Report Cover
+                    </li>
+
+                    <li>
+                        Lab Index Matrix
+                    </li>
+
+                    <li>
+                        Group Project Cover
+                    </li>
+
+                    <li>
+                        Print / Save as PDF
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- About Developer -->
+
+            <div class="footer-section">
+
+                <h3>
+                    About Developer
+                </h3>
+
+                <p>
+                    A student-focused academic tool created to make
+                    document preparation easier, faster and more
+                    organized for EEE students.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 IIUC EEE Cover Page Generator.
+                All Rights Reserved.
+            </p>
+
+            <p>
+                Designed & Developed by
+                <strong>
+                    Preetam Aich
+                </strong>
+            </p>
+
+        </div>
+
+    </footer>
+
+
 
     <script src="script.js"></script>
 
