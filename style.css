@@ -1314,8 +1314,6 @@ select {
     right: 50px;
     bottom: 8px;
 
-    height: 120px;
-
     z-index: 5;
 }
 
@@ -1389,4 +1387,34 @@ select {
     object-position: center bottom;
 
     margin: 0 auto;
+}
+.index-student-info {
+    display: none;
+
+    width: 410px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 8px;
+
+    font-family: "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.4;
+
+    transform: translateX(80px);
+}
+
+.index-student-info div {
+    display: grid;
+    grid-template-columns: 110px 300px;
+    margin: 2px 0;
+}
+
+.index-student-info b {
+    font-weight: bold;
+    text-align: left;
+}
+
+.index-student-info span {
+    text-align: left;
+    white-space: nowrap;
 }
