@@ -1961,11 +1961,14 @@ function updatePreview() {
     
 
 }
-$("commonBottom").classList.toggle(
-    "hidden",
-    currentType === "index"
-);
+const commonBottom = $("commonBottom");
 
+if (commonBottom) {
+    commonBottom.classList.toggle(
+        "hidden",
+        currentType === "index"
+    );
+}
 
 // ========================================
 // SAVE DRAFT
