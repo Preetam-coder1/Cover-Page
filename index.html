@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -15,6 +16,7 @@
         rel="stylesheet"
         href="style.css"
     >
+
 </head>
 
 
@@ -30,10 +32,12 @@
         <div class="brand">
 
             <div class="logo-box">
+
                 <img
                     src="iiuc.png"
                     alt="IIUC Logo"
                 >
+
             </div>
 
 
@@ -56,6 +60,7 @@
             class="menu-btn"
             id="menuBtn"
             aria-label="Menu"
+            type="button"
         >
             ☰
         </button>
@@ -220,9 +225,7 @@
                     </div>
 
 
-                    <!-- =================================
-                         ASSIGNMENT TOPIC
-                    ================================== -->
+                    <!-- Assignment Topic -->
 
                     <div id="topicField">
 
@@ -240,9 +243,7 @@
 
 
 
-                    <!-- =================================
-                         GROUP PROJECT TITLE
-                    ================================== -->
+                    <!-- Group Project Title -->
 
                     <div
                         id="projectTitleField"
@@ -263,9 +264,7 @@
 
 
 
-                    <!-- =================================
-                         LAB ONLY
-                    ================================== -->
+                    <!-- Lab Only -->
 
                     <div
                         id="labOnly"
@@ -295,7 +294,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -311,8 +309,6 @@
                     </div>
 
 
-                    <!-- Course Select -->
-
                     <label for="courseSelect">
                         Select Course
                     </label>
@@ -327,8 +323,6 @@
 
 
 
-                    <!-- Course Code -->
-
                     <label for="courseCode">
                         Course Code
                     </label>
@@ -342,8 +336,6 @@
 
 
 
-                    <!-- Course Title -->
-
                     <label for="courseTitle">
                         Course Title
                     </label>
@@ -356,8 +348,6 @@
                     >
 
 
-
-                    <!-- Department -->
 
                     <label for="courseDepartment">
                         Department
@@ -380,9 +370,9 @@
 
                 <div class="form-card">
 
-                    <h3>
-                        Teacher Details
-                    </h3>
+                    <div class="card-heading">
+                        👨‍🏫 Teacher Details
+                    </div>
 
 
                     <label for="teacherSelect">
@@ -395,7 +385,12 @@
                             -- Select EEE Teacher --
                         </option>
 
+                        <option value="manual">
+                            ✎ Enter Teacher Manually
+                        </option>
+
                     </select>
+
 
 
                     <label for="teacherName">
@@ -406,8 +401,8 @@
                         type="text"
                         id="teacherName"
                         placeholder="Teacher Name"
-                        readonly
                     >
+
 
 
                     <label for="designation">
@@ -418,8 +413,8 @@
                         type="text"
                         id="designation"
                         placeholder="Designation"
-                        readonly
                     >
+
 
 
                     <label for="teacherDept">
@@ -430,7 +425,7 @@
                         type="text"
                         id="teacherDept"
                         value="Department of Electrical and Electronic Engineering (EEE)"
-                        readonly
+                         placeholder="Teacher Department"
                     >
 
                 </div>
@@ -688,19 +683,39 @@
 
                         <div class="a4-border">
 
-    <img
-        src="iiuc.png"
-        class="watermark-logo"
-        alt="IIUC Logo"
-    >
 
-    <div class="uni-logo" id="logoPreview">
-        <img
-            src="iiuc.png"
-            alt="IIUC Logo"
-        >
-    </div>
+                            <!-- =================================
+                                 WATERMARK
+                            ================================== -->
 
+                            <img
+                                src="iiuc.png"
+                                class="watermark-logo"
+                                alt="IIUC Logo"
+                            >
+
+
+                            <!-- =================================
+                                 MAIN LOGO
+                            ================================== -->
+
+                            <div
+                                class="uni-logo"
+                                id="logoPreview"
+                            >
+
+                                <img
+                                    src="iiuc.png"
+                                    alt="IIUC Logo"
+                                >
+
+                            </div>
+
+
+
+                            <!-- =================================
+                                 UNIVERSITY NAME
+                            ================================== -->
 
                             <div class="uni-bn">
                                 আন্তর্জাতিক ইসলামী বিশ্ববিদ্যালয় চট্টগ্রাম
@@ -718,7 +733,9 @@
 
 
 
-                            <!-- Document Title -->
+                            <!-- =================================
+                                 DOCUMENT TITLE
+                            ================================== -->
 
                             <h3 id="docTitle">
                                 ASSIGNMENT
@@ -736,7 +753,7 @@
                                 <div class="info-table">
 
 
-                                    <!-- Assignment Only -->
+                                    <!-- Assignment Topic -->
 
                                     <div id="normalTopicInfo">
 
@@ -757,7 +774,7 @@
 
 
 
-                                    <!-- Lab Only -->
+                                    <!-- Lab Experiment No -->
 
                                     <div
                                         id="labExperimentNo"
@@ -781,7 +798,7 @@
 
 
 
-                                    <!-- Lab Only -->
+                                    <!-- Lab Experiment Name -->
 
                                     <div
                                         id="labExperimentName"
@@ -892,7 +909,7 @@
                                         </span>
 
                                         <span id="pTeacherDept">
-                                            Department
+                                            Department of Electrical and Electronic Engineering (EEE)
                                         </span>
 
                                     </div>
@@ -1008,28 +1025,6 @@
 
                                 </div>
 
-
-
-                                <!-- Submission Date -->
-
-                                <div class="date-row">
-
-                                    <b>
-                                        DATE OF SUBMISSION :
-                                    </b>
-
-                                    <span id="pDate">
-                                        ________________
-                                    </span>
-
-                                </div>
-
-
-                                <div class="remark">
-                                    REMARK:
-                                </div>
-
-
                             </div>
 
 
@@ -1108,13 +1103,32 @@
 
                                     </div>
 
+
+
+                                    <!-- Department -->
+
+                                    <div>
+
+                                        <b>
+                                            DEPARTMENT
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="gCourseDepartment">
+                                                Department of Electrical and Electronic Engineering (EEE)
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
                                 </div>
 
 
 
-                                <!-- =================================
-                                     SUBMITTED TO
-                                ================================== -->
+                                <!-- Submitted To -->
 
                                 <div class="submitted-to">
 
@@ -1134,7 +1148,7 @@
                                         </span>
 
                                         <span id="gTeacherDept">
-                                            Department
+                                            Department of Electrical and Electronic Engineering (EEE)
                                         </span>
 
                                     </div>
@@ -1143,9 +1157,7 @@
 
 
 
-                                <!-- =================================
-                                     SUBMITTED BY
-                                ================================== -->
+                                <!-- Submitted By -->
 
                                 <div class="group-submit">
 
@@ -1158,22 +1170,6 @@
                                         id="groupGrid"
                                         class="member-grid"
                                     ></div>
-
-                                </div>
-
-
-
-                                <!-- Submission Date -->
-
-                                <div class="date-row">
-
-                                    <b>
-                                        DATE OF SUBMISSION :
-                                    </b>
-
-                                    <span id="gDate">
-                                        ________________
-                                    </span>
 
                                 </div>
 
@@ -1291,6 +1287,63 @@
                             </div>
 
 
+
+                            <!-- =================================
+                                 COMMON BOTTOM SECTION
+                                 ALL 4 DOCUMENT TYPES
+                            ================================== -->
+
+                            <div class="common-bottom" id="commonBottom">
+                                
+
+
+                                <!-- Date + Remark -->
+
+                                <div class="bottom-info">
+
+
+                                    <!-- Date -->
+
+                                    <div class="bottom-date">
+
+                                        <b>
+                                            DATE OF SUBMISSION :
+                                        </b>
+
+                                        <span id="commonDate">
+                                            ________________
+                                        </span>
+
+                                    </div>
+
+
+
+                                    <!-- Remark -->
+
+                                    <div class="bottom-remark">
+
+                                        <b>
+                                            REMARK:
+                                        </b>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <!-- Campus Image -->
+
+                                <img
+                                    src="foot.png"
+                                    class="bottom-campus-image"
+                                    alt="IIUC Campus"
+                                >
+
+                            </div>
+
+
                         </div>
 
                     </div>
@@ -1306,7 +1359,7 @@
 
 
     <!-- =========================================
-         FOOTER
+         WEBSITE FOOTER
     ========================================== -->
 
     <footer class="site-footer">
@@ -1432,6 +1485,10 @@
     </footer>
 
 
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
 
     <script src="script.js"></script>
 
