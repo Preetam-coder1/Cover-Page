@@ -1046,6 +1046,24 @@ function handleCourseSelection() {
 function selectType(type) {
 
     currentType = type;
+    // Hide Date + Remark only for Lab Index
+if ($("bottomInfo")) {
+
+    $("bottomInfo").classList.toggle(
+        "hidden",
+        type === "index"
+    );
+    $("indexStudentInfo").style.display =
+    type === "index" ? "block" : "none";
+    document.querySelectorAll(".type-card").forEach(button => {
+        button.classList.toggle(
+            "active",
+            button.dataset.type === type
+        );
+    });
+
+
+}
 
 
     // ========================================
@@ -1833,10 +1851,9 @@ function updatePreview() {
 
 
     // ========================================
-    // LAB INDEX PREVIEW
-    // ========================================
-
-    setText(
+// LAB INDEX STUDENT INFORMATION
+// ========================================
+setText(
         "iCourseCode",
         val(
             "courseCode",
@@ -1852,24 +1869,31 @@ function updatePreview() {
             "[COURSE TITLE]"
         )
     );
+setText(
+    "indexStudentName",
+    val("studentName", "________________")
+);
 
+setText(
+    "indexStudentId",
+    val("studentId", "________________")
+);
+setText(
+    "indexStudentSemester",
+    val("semester", "________________")
+);
+setText(
+    "indexStudentSection",
+    val("section", "________________")
+);
 
-    setText(
-        "iStudent",
-        val(
-            "studentName",
-            "[STUDENT NAME]"
-        )
-    );
-
-
-    setText(
-        "iStudentId",
-        val(
-            "studentId",
-            "[STUDENT ID]"
-        )
-    );
+setText(
+    "indexStudentDepartment",
+    val(
+        "department",
+        "EEE"
+    )
+);
 
 
     // ========================================
@@ -1961,14 +1985,8 @@ function updatePreview() {
     
 
 }
-const commonBottom = $("commonBottom");
 
-if (commonBottom) {
-    commonBottom.classList.toggle(
-        "hidden",
-        currentType === "index"
-    );
-}
+
 
 // ========================================
 // SAVE DRAFT
