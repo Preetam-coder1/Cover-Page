@@ -1507,6 +1507,7 @@ function updatePreview() {
             "Department of Electrical and Electronic Engineering (EEE)"
         )
     );
+    
 
 
     // ========================================
@@ -1676,6 +1677,12 @@ function updatePreview() {
             ? formatDate(submissionDate.value)
             : "________________"
     );
+    setText(
+    "commonDate",
+    submissionDate
+        ? formatDate(submissionDate.value)
+        : "________________"
+);
 
 
     // ========================================
@@ -1951,8 +1958,13 @@ function updatePreview() {
         }
 
     }
+    
 
 }
+$("commonBottom").classList.toggle(
+    "hidden",
+    currentType === "index"
+);
 
 
 // ========================================
@@ -2247,7 +2259,6 @@ if ($("teacherSelect")) {
                 const selected =
                     this.options[this.selectedIndex];
 
-
                 if (!this.value) {
 
                     if ($("teacherName")) {
@@ -2263,22 +2274,21 @@ if ($("teacherSelect")) {
                     return;
                 }
 
-
                 if ($("teacherName")) {
-
                     $("teacherName").value =
                         selected.dataset.name || "";
-
                 }
-
 
                 if ($("designation")) {
-
                     $("designation").value =
                         selected.dataset.designation || "";
-
                 }
 
+                // Teacher Department remains manually editable
+                if ($("teacherDept")) {
+                    $("teacherDept").readOnly = false;
+                    $("teacherDept").disabled = false;
+                }
 
                 updatePreview();
 
