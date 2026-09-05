@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>IIUC EEE Cover Page Generator</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- =====
+         TOP NAVIGATION
+    ====== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="logo-box">
+
+                <img
+                    src="iiuc.png"
+                    alt="IIUC Logo"
+                >
+
+            </div>
+
+
+            <div>
+
+                <div class="brand-title">
+                    IIUC EEE Cover Page
+                </div>
+
+                <div class="brand-subtitle">
+                    ACADEMIC DOCUMENT PLATFORM
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Menu"
+            type="button"
+        >
+            ☰
+        </button>
+
+    </header>
+
+    <!-- =====
+         MAIN CONTAINER
+    ====== -->
+
+    <main class="container">
+
+
+        <!-- =
+             DOCUMENT FORMAT
+        == -->
+
+        <section class="type-section">
+
+            <div class="section-title-row">
+
+                <h2>
+                    SELECT DOCUMENT FORMAT
+                </h2>
+
+            </div>
+
+            <div class="type-grid">
+
+
+                <!-- Assignment -->
+
+                <button
+                    class="type-card active"
+                    data-type="assignment"
+                    type="button"
+                >
+
+                    <span class="type-icon">
+                        📄
+                    </span>
+
+                    <b>
+                        Assignment Cover
+                    </b>
+
+                    <small>
+                        Single topic & teacher box
+                    </small>
+
+                </button>
+
+                <!-- Lab -->
+
+                <button
+                    class="type-card"
+                    data-type="lab"
+                    type="button"
+                >
+
+                    <span class="type-icon">
+                        🔬
+                    </span>
+
+                    <b>
+                        Lab Report Cover
+                    </b>
+
+                    <small>
+                        Experiment no & title
+                    </small>
+
+                </button>
+
+                <!-- Lab Index -->
+
+                <button
+                    class="type-card"
+                    data-type="index"
+                    type="button"
+                >
+
+                    <span class="type-icon">
+                        ▦
+                    </span>
+
+                    <b>
+                        Lab Index Matrix
+                    </b>
+
+                    <small>
+                        Automatic rows & signatures
+                    </small>
+
+                </button>
+
+                <!-- Group Project -->
+
+                <button
+                    class="type-card"
+                    data-type="group"
+                    type="button"
+                >
+
+                    <span class="type-icon">
+                        👥
+                    </span>
+
+                    <b>
+                        Group Project Cover
+                    </b>
+
+                    <small>
+                        1 to 4 member grid
+                    </small>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- =
+             WORKSPACE
+        == -->
+
+        <div class="workspace-grid">
+
+
+            <!-- =====
+                 LEFT SIDE - FORMS
+            ==== -->
+
+            <section class="forms">
+
+
+                <!-- ====
+                     BASIC DOCUMENT DETAILS
+                ===== -->
+
+                <div class="form-card">
+
+                    <div class="card-heading">
+
+                        📝
+
+                        <span id="detailsHeading">
+                            Assignment Details
+                        </span>
+
+                    </div>
+
+
+                    <!-- Assignment Topic -->
+
+                    <div id="topicField">
+
+                        <label for="topic">
+                            Title / Topic Name
+                        </label>
+
+                        <input
+                            id="topic"
+                            type="text"
+                            placeholder="Enter assignment topic / title"
+                        >
+
+                    </div>
+
+                    <!-- Group Project Title -->
+
+                    <div
+                        id="projectTitleField"
+                        class="hidden"
+                    >
+
+                        <label for="projectTitle">
+                            Project Title
+                        </label>
+
+                        <input
+                            id="projectTitle"
+                            type="text"
+                            placeholder="Enter project title"
+                        >
+
+                    </div>
+
+                    <!-- Lab Only -->
+
+                    <div
+                        id="labOnly"
+                        class="conditional hidden"
+                    >
+
+                        <label for="experimentNo">
+                            Experiment No.
+                        </label>
+
+                        <input
+                            id="experimentNo"
+                            type="text"
+                            placeholder="e.g., 01"
+                        >
+
+
+                        <label for="experimentName">
+                            Experiment Name
+                        </label>
+
+                        <input
+                            id="experimentName"
+                            type="text"
+                            placeholder="e.g., Verification of Ohm's Law"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ====
+                     COURSE DETAILS
+                ==== -->
+
+                <div class="form-card">
+
+                    <div class="card-heading">
+                        📚 Course Details
+                    </div>
+
+
+                    <label for="courseSelect">
+                        Select Course
+                    </label>
+
+                    <select id="courseSelect">
+
+                        <option value="">
+                            -- Select an EEE Course --
+                        </option>
+
+                    </select>
+
+                    <label for="courseCode">
+                        Course Code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="courseCode"
+                        placeholder="Course Code"
+                        readonly
+                    >
+
+                    <label for="courseTitle">
+                        Course Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="courseTitle"
+                        placeholder="Course Title"
+                        readonly
+                    >
+
+                    <label for="courseDepartment">
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="courseDepartment"
+                        value="Department of Electrical and Electronic Engineering (EEE)"
+                    >
+
+                </div>
+
+                <!-- =====
+                     TEACHER DETAILS
+                ====== -->
+
+                <div class="form-card">
+
+                    <div class="card-heading">
+                        👨‍🏫 Teacher Details
+                    </div>
+
+
+                    <label for="teacherSelect">
+                        Select Teacher
+                    </label>
+
+                    <select id="teacherSelect">
+
+                        <option value="">
+                            -- Select EEE Teacher --
+                        </option>
+
+                        <option value="manual">
+                            ✎ Enter Teacher Manually
+                        </option>
+
+                    </select>
+
+                    <label for="teacherName">
+                        Teacher Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="teacherName"
+                        placeholder="Teacher Name"
+                    >
+
+                    <label for="designation">
+                        Designation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="designation"
+                        placeholder="Designation"
+                    >
+
+                    <label for="teacherDept">
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="teacherDept"
+                        value="Department of Electrical and Electronic Engineering (EEE)"
+                         placeholder="Teacher Department"
+                    >
+
+                </div>
+
+                <!-- =====
+                     STUDENT DETAILS
+                ====== -->
+
+                <div class="form-card">
+
+                    <div class="card-heading">
+                        🎓 Student Details
+                    </div>
+
+
+                    <label for="studentName">
+                        Student Name
+                    </label>
+
+                    <input
+                        id="studentName"
+                        type="text"
+                        placeholder="Your Full Name"
+                    >
+
+                    <label for="studentId">
+                        Student ID
+                    </label>
+
+                    <input
+                        id="studentId"
+                        type="text"
+                        placeholder="e.g.,ET123456"
+                    >
+
+                    <div class="two-col">
+
+                        <div>
+
+                            <label for="section">
+                                Section
+                            </label>
+
+                            <input
+                                id="section"
+                                type="text"
+                                placeholder="A"
+                            >
+
+                        </div>
+
+                        <div>
+
+                            <label for="semester">
+                                Semester
+                            </label>
+
+                            <input
+                                id="semester"
+                                type="text"
+                                placeholder="8th"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <label for="department">
+                        Department
+                    </label>
+
+                    <input
+                        id="department"
+                        type="text"
+                        placeholder="Department of EEE"
+                    >
+
+
+                    <label for="submissionDate">
+                        Submission Date
+                    </label>
+
+                    <input
+                        id="submissionDate"
+                        type="date"
+                    >
+
+                </div>
+
+                <!-- =====
+                     GROUP MEMBERS
+                ====== -->
+
+                <div
+                    id="groupForm"
+                    class="form-card hidden"
+                >
+
+                    <div class="card-heading">
+                        👥 Group Members
+                    </div>
+
+
+                    <label for="memberCount">
+                        Number of Members
+                    </label>
+
+                    <select id="memberCount">
+
+                        <option value="1">
+                            1 Member
+                        </option>
+
+                        <option value="2">
+                            2 Members
+                        </option>
+
+                        <option value="3">
+                            3 Members
+                        </option>
+
+                        <option value="4">
+                            4 Members
+                        </option>
+
+                    </select>
+
+
+                    <div id="memberInputs"></div>
+
+                </div>
+
+
+                <!-- =====
+                     LAB INDEX FORM
+                ====== -->
+
+                <div
+                    id="indexForm"
+                    class="form-card hidden"
+                >
+
+                    <div class="card-heading">
+                        🧪 Lab Index Entries
+                    </div>
+
+
+                    <p class="helper">
+                        Add experiments. The preview will keep
+                        at least 10 rows.
+                    </p>
+
+
+                    <div id="indexRows"></div>
+
+
+                    <button
+                        class="secondary-btn"
+                        id="addRow"
+                        type="button"
+                    >
+                        ＋ Add Experiment
+                    </button>
+
+                </div>
+
+                <!-- =====
+                     ACTION BUTTONS
+                ====== -->
+
+                <div class="action-row">
+
+                    <button
+                        class="primary-btn"
+                        id="saveBtn"
+                        type="button"
+                    >
+                        💾 Save Draft
+                    </button>
+
+
+                    <button
+                        class="secondary-btn"
+                        id="resetBtn"
+                        type="button"
+                    >
+                        ↻ Reset
+                    </button>
+
+
+                    <button
+                        class="dark-btn"
+                        id="printBtn"
+                        type="button"
+                    >
+                        🖨 Print / Save PDF
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="status"
+                    class="status"
+                ></div>
+
+
+            </section>
+
+            <!-- =====
+                 RIGHT SIDE - LIVE PREVIEW
+            ====== -->
+
+            <section class="preview-panel">
+
+
+                <div class="preview-top">
+
+                    <h2>
+                        📄 Live A4 Document Preview
+                    </h2>
+
+                    <span id="previewLabel">
+                        Assignment Cover
+                    </span>
+
+                </div>
+
+
+                <div class="preview-stage">
+
+
+                    <!-- =====
+                         A4 DOCUMENT
+                    ====== -->
+
+                    <div
+                        id="a4"
+                        class="a4"
+                    >
+
+                        <div class="a4-border">
+
+
+                            <!-- =====
+                                 WATERMARK
+                            ====== -->
+
+                            <img
+                                src="iiuc.png"
+                                class="watermark-logo"
+                                alt="IIUC Logo"
+                            >
+
+
+                            <!-- =====
+                                 MAIN LOGO
+                            ====== -->
+
+                            <div
+                                class="uni-logo"
+                                id="logoPreview"
+                            >
+
+                                <img
+                                    src="iiuc.png"
+                                    alt="IIUC Logo"
+                                >
+
+                            </div>
+
+
+
+                            <!-- =====
+                                 UNIVERSITY NAME
+                            ====== -->
+
+                            <div class="uni-bn">
+                                আন্তর্জাতিক ইসলামী বিশ্ববিদ্যালয় চট্টগ্রাম
+                            </div>
+
+
+                            <div class="uni-ar">
+                                الجامعة العالمية الإسلامية تشيتاغونغ
+                            </div>
+
+
+                            <div class="uni-en">
+                                International Islamic University Chittagong
+                            </div>
+
+                            <!-- =====
+                                 DOCUMENT TITLE
+                            ====== -->
+
+                            <h3 id="docTitle">
+                                ASSIGNMENT
+                            </h3>
+
+                            <!-- =====
+                                 NORMAL PREVIEW
+                            ====== -->
+
+                            <div id="normalPreview">
+
+
+                                <div class="info-table">
+
+
+                                    <!-- Assignment Topic -->
+
+                                    <div id="normalTopicInfo">
+
+                                        <b>
+                                            TOPIC NAME
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <b><em id="pTopic">
+                                                [TOPIC NAME]
+                                            </em></b>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Lab Experiment No -->
+
+                                    <div
+                                        id="labExperimentNo"
+                                        class="hidden"
+                                    >
+
+                                        <b>
+                                            EXPERIMENT NO.
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <b><em id="pExperimentNo">
+                                                [EXPERIMENT NO.]
+                                            </em></b>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Lab Experiment Name -->
+
+                                    <div
+                                        id="labExperimentName"
+                                        class="hidden"
+                                    >
+
+                                        <b>
+                                            EXPERIMENT NAME
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <b><em id="pExperimentName">
+                                                [EXPERIMENT NAME]
+                                            </em></b>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Course Code -->
+
+                                    <div>
+
+                                        <b>
+                                            COURSE CODE
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="pCourseCode">
+                                                [COURSE CODE]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Course Title -->
+
+                                    <div>
+
+                                        <b>
+                                            COURSE TITLE
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="pCourseTitle">
+                                                [COURSE TITLE]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Department -->
+
+                                    <div>
+
+                                        <b>
+                                            DEPARTMENT
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="pCourseDepartment">
+                                                Department of Electrical and Electronic Engineering (EEE)
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- =====
+                                     SUBMITTED TO
+                                ====== -->
+
+                                <div class="submitted-to">
+
+                                    <u>
+                                        SUBMITTED TO:
+                                    </u>
+
+
+                                    <div class="teacher-box">
+
+                                        <b id="pTeacher">
+                                            Teacher Name
+                                        </b>
+
+                                        <span id="pDesignation">
+                                            Designation
+                                        </span>
+
+                                        <span id="pTeacherDept">
+                                            Department of Electrical and Electronic Engineering (EEE)
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- =====
+                                     SUBMITTED BY
+                                ====== -->
+
+                                <div class="submitted-by">
+
+                                    <u>
+                                        SUBMITTED BY:
+                                    </u>
+
+                                    <div class="student-table">
+
+
+                                        <div>
+
+                                            <b>
+                                                NAME
+                                            </b>
+
+                                            <span>
+                                                :
+
+                                                <b><em id="pStudentName">
+                                                    [STUDENT NAME]
+                                                </em></b>
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <b>
+                                                ID NO
+                                            </b>
+
+                                            <span>
+                                                :
+
+                                                <b><em id="pStudentId">
+                                                    [STUDENT ID]
+                                                </em></b>
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <b>
+                                                SEMESTER
+                                            </b>
+
+                                            <span>
+                                                :
+
+                                                <b><em id="pSemester">
+                                                    [SEMESTER]
+                                                </em></b>
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <b>
+                                                SECTION
+                                            </b>
+
+                                            <span>
+                                                :
+
+                                                <b><em id="pSection">
+                                                    [SECTION]
+                                                </em></b>
+
+                                            </span>
+
+                                        </div>
+
+
+                                        <div>
+
+                                            <b>
+                                                DEPARTMENT
+                                            </b>
+
+                                            <span>
+                                                :
+
+                                                <b><em id="pDepartment">
+                                                    [DEPARTMENT]
+                                                </em></b>
+
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- =====
+                                 GROUP PROJECT PREVIEW
+                            ====== -->
+
+                            <div
+                                id="groupPreview"
+                                class="hidden"
+                            >
+
+                                <div class="info-table">
+
+
+                                    <!-- Project Title -->
+
+                                    <div>
+
+                                        <b>
+                                            PROJECT TITLE
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="gTopic">
+                                                [PROJECT TITLE]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+
+
+                                    <!-- Course Code -->
+
+                                    <div>
+
+                                        <b>
+                                            COURSE CODE
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="gCourseCode">
+                                                [COURSE CODE]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Course Title -->
+
+                                    <div>
+
+                                        <b>
+                                            COURSE TITLE
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="gCourseTitle">
+                                                [COURSE TITLE]
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+                                    <!-- Department -->
+
+                                    <div>
+
+                                        <b>
+                                            DEPARTMENT
+                                        </b>
+
+                                        <span>
+                                            :
+
+                                            <em id="gCourseDepartment">
+                                                Department of Electrical and Electronic Engineering (EEE)
+                                            </em>
+
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- Submitted To -->
+
+                                <div class="submitted-to">
+
+                                    <u>
+                                        SUBMITTED TO:
+                                    </u>
+
+
+                                    <div class="teacher-box">
+
+                                        <b id="gTeacher">
+                                            Teacher Name
+                                        </b>
+
+                                        <span id="gDesignation">
+                                            Designation
+                                        </span>
+
+                                        <span id="gTeacherDept">
+                                            Department of Electrical and Electronic Engineering (EEE)
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <!-- Submitted By -->
+
+                                <div class="group-submit">
+
+                                    <u>
+                                        SUBMITTED BY:
+                                    </u>
+
+
+                                    <div
+                                        id="groupGrid"
+                                        class="member-grid"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =====
+                                 LAB INDEX PREVIEW
+                            ====== -->
+
+                            <div id="indexPreview" class="hidden">
+
+
+                                <div class="index-meta">
+
+
+                                    <div>
+
+                                        <b>
+                                            COURSE CODE:
+                                        </b>
+
+                                        <span id="iCourseCode">
+                                            [COURSE CODE]
+                                        </span>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <b>
+                                            COURSE TITLE:
+                                        </b>
+
+                                        <span id="iCourseTitle">
+                                            [COURSE TITLE]
+                                        </span>
+
+                                    </div>
+
+
+
+                                </div>
+
+
+                                <!-- Lab Index Table -->
+
+                                <table class="index-table">
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                SL
+                                            </th>
+
+                                            <th>
+                                                Experiment No.
+                                            </th>
+
+                                            <th>
+                                                Experiment Name
+                                            </th>
+
+                                            <th>
+                                                Date
+                                            </th>
+
+                                            <th>
+                                                Signature
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+
+                                    <tbody
+                                        id="indexPreviewBody"
+                                    ></tbody>
+
+                                </table>
+
+                                <!-- =====
+                                     SUBMITTED TO
+                                ====== -->
+
+                                <div class="submitted-to">
+
+                                    <u>
+                                        SUBMITTED TO:
+                                    </u>
+
+                                    <div class="teacher-box">
+
+                                        <b id="indexTeacher">
+                                            Teacher Name
+                                        </b>
+
+                                        <span id="indexTeacherDesignation">
+                                            Designation
+                                        </span>
+
+                                        <span id="indexTeacherDept">
+                                            Department of Electrical and Electronic Engineering (EEE)
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- =====
+                                 COMMON BOTTOM SECTION
+                                 ALL 4 DOCUMENT TYPES
+                            ====== -->
+
+                            <div id="commonBottom" class="common-bottom">
+
+    <div id="bottomInfo" class="bottom-info">
+
+        <div class="bottom-date">
+            <b>DATE OF SUBMISSION :</b>
+            <span id="commonDate">________________</span>
+        </div>
+
+        <div class="bottom-remark">
+            <b>REMARK:</b>
+        </div>
+
+    </div>
+
+    <div id="indexStudentInfo" class="index-student-info">
+        <h4> Submitted By: </h4>
+
+        <div>
+            <b>STUDENT NAME :</b>
+            <span id="indexStudentName">________________</span>
+        </div>
+
+        <div>
+            <b>STUDENT ID :</b>
+            <span id="indexStudentId">________________</span>
+        </div>
+        <div>
+            <b>SEMESTER :</b>
+            <span id="indexStudentSemester">________________</span>
+        </div>
+
+        <div>
+            <b>SECTION :</b>
+            <span id="indexStudentSection">________________</span>
+        </div>
+
+        <div>
+            <b>DEPARTMENT :</b>
+            <span id="indexStudentDepartment">EEE</span>
+        </div>
+
+    </div>
+
+    <img
+        src="foot.png"
+        class="bottom-campus-image"
+        alt="IIUC Campus"
+    >
+
+</div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====
+         WEBSITE FOOTER
+    ====== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <!-- About Website -->
+
+            <div class="footer-section">
+
+                <h3>
+                    About This Website
+                </h3>
+
+                <p>
+                    IIUC EEE Cover Page Generator is an academic
+                    document platform designed to create professional
+                    cover pages for assignments, lab reports, lab
+                    indexes and group projects.
+                </p>
+
+            </div>
+
+
+            <!-- Developer -->
+
+            <div class="footer-section">
+
+                <h3>
+                    Developed By
+                </h3>
+
+                <p class="developer-name">
+                    Preetam Aich
+                </p>
+
+                <p>
+                    Department of Electrical and Electronic Engineering (EEE)
+                </p>
+
+                <p>
+                    International Islamic University Chittagong
+                </p>
+
+            </div>
+
+
+
+            <!-- Features -->
+
+            <div class="footer-section">
+
+                <h3>
+                    Features
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Assignment Cover Generator
+                    </li>
+
+                    <li>
+                        Lab Report Cover
+                    </li>
+
+                    <li>
+                        Lab Index Matrix
+                    </li>
+
+                    <li>
+                        Group Project Cover
+                    </li>
+
+                    <li>
+                        Print / Save as PDF
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- About Developer -->
+
+            <div class="footer-section">
+
+                <h3>
+                    About Developer
+                </h3>
+
+                <p>
+                    A student-focused academic tool created to make
+                    document preparation easier, faster and more
+                    organized for EEE students.
+                </p>
+                <div class="social-icons">
+                <h3>Find me:</h3>
+                 <a href="https://www.facebook.com/preetam.aich" target="_blank">
+                  <i class="fa-brands fa-facebook"></i></a>
+                  <a href="https://www.linkedin.com/in/%20preetam-aich-a49390348" target="_blank">
+                  <i class="fa-brands fa-linkedin"></i></a>
+                  <a href="https://github.com/Preetam-coder1" target="_blank">
+                  <i class="fa-brands fa-github"></i></a>
+                  </div>
+                  <div class="feedback-box">
+                    <h3>Feedback:
+                        <button type="button" id="feedbackBtn">
+        <a href="https://forms.gle/AZjLu9GJSAkG24bE6" target="_blank">
+        <i class="fa-solid fa-comment-dots"></i> Click!</a></button> </h3> 
+                  </div>
+    
+            </div>
+            
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 IIUC EEE Cover Page Generator.
+                All Rights Reserved.
+            </p>
+
+            <p>
+                Designed & Developed by
+                <strong>
+                    Preetam Aich
+                </strong>
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====
+         JAVASCRIPT
+    ====== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

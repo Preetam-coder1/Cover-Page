@@ -1,0 +1,1508 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #007b5a;
+    --green2: #008d67;
+    --navy: #102442;
+    --muted: #61728c;
+    --line: #dbe4ec;
+    --bg: #f5f8fa;
+}
+
+body {
+    font-family: Inter, Segoe UI, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--navy);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.topbar {
+    height: 84px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.logo-box {
+    width: 50px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+.brand-title {
+    font-size: 23px;
+    font-weight: 800;
+}
+
+
+.brand-subtitle {
+    margin-top: 5px;
+
+    color: var(--green);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+
+.menu-btn {
+    border: 0;
+    background: transparent;
+
+    font-size: 29px;
+    color: #31445f;
+
+    cursor: pointer;
+}
+
+
+
+.container {
+    width: 94%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+
+.workspace-head {
+    margin: 30px 0 22px;
+
+    padding: 22px;
+
+    background: #effbf7;
+
+    border: 1px solid #a9ead3;
+    border-radius: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+/* Guest Icon */
+
+.guest-icon {
+    width: 62px;
+    height: 62px;
+
+    border-radius: 17px;
+
+    background: var(--green);
+    color: #fff;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 30px;
+}
+
+
+/* Eyebrow Text */
+
+.eyebrow {
+    color: var(--green);
+
+    font-size: 14px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* Workspace Heading */
+
+.workspace-head h1 {
+    margin: 5px 0;
+
+    font-size: 29px;
+}
+
+
+/* Workspace Description */
+
+.workspace-head p {
+    color: #465973;
+}
+
+
+/* No Login Pill */
+
+.pill {
+    padding: 7px 11px;
+
+    background: #c8f5df;
+    color: var(--green);
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+}
+
+
+/* ================
+   6. DOCUMENT FORMAT SECTION
+================ */
+
+.section-title-row,
+.preview-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+/* Section Title */
+
+.section-title-row h2 {
+    color: #60738f;
+    font-size: 16px;
+}
+
+
+/* Layout Badge */
+
+.layout-badge {
+    padding: 8px 12px;
+
+    background: #f5fffb;
+    color: var(--green);
+
+    border: 1px solid #b4ebd9;
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ================
+   7. DOCUMENT TYPE CARDS
+================ */
+
+.type-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin: 16px 0 25px;
+}
+
+
+/* Type Card */
+
+.type-card {
+    min-height: 118px;
+
+    padding: 18px;
+
+    background: #fff;
+    color: var(--navy);
+
+    border: 1px solid var(--line);
+    border-radius: 20px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Hover Effect */
+
+.type-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px #10244212;
+}
+
+
+/* Active Card */
+
+.type-card.active {
+    background: var(--green);
+    border-color: var(--green);
+
+    color: #fff;
+}
+
+
+/* Type Icon */
+
+.type-icon {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 25px;
+}
+
+
+/* Type Card Title */
+
+.type-card b {
+    display: block;
+
+    font-size: 16px;
+}
+
+
+/* Type Card Description */
+
+.type-card small {
+    display: block;
+
+    margin-top: 6px;
+
+    opacity: 0.82;
+}
+
+
+/* ================
+   8. MAIN WORKSPACE GRID
+================ */
+
+.workspace-grid {
+    display: grid;
+
+    grid-template-columns: 430px minmax(0, 1fr);
+
+    gap: 22px;
+
+    align-items: start;
+}
+
+
+/* ================
+   9. FORM CARDS
+================ */
+
+.form-card {
+    padding: 22px;
+    margin-bottom: 17px;
+
+    background: #fff;
+
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px #10244208;
+}
+
+
+/* Form Card Heading */
+
+.card-heading {
+    padding-bottom: 14px;
+    margin-bottom: 17px;
+
+    border-bottom: 1px solid #e6ebef;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+
+/* Form Labels */
+
+.form-card label {
+    display: block;
+
+    margin: 13px 0 7px;
+
+    color: #294365;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* Input & Select */
+
+.form-card input,
+.form-card select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    background: #fff;
+    color: #243a58;
+
+    border: 1px solid #d7e0e8;
+    border-radius: 13px;
+
+    outline: 0;
+}
+
+
+/* Input Focus */
+
+.form-card input:focus,
+.form-card select:focus {
+    border-color: var(--green);
+
+    box-shadow: 0 0 0 3px #007b5a18;
+}
+
+
+/* Two Column Form */
+
+.two-col {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+/* Helper Text */
+
+.helper {
+    margin: -8px 0 10px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* Hidden Elements */
+
+.conditional.hidden,
+.hidden {
+    display: none !important;
+}
+
+
+/* ================
+   10. ACTION BUTTONS
+================ */
+
+.action-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 3px 0 35px;
+}
+
+
+.action-row button {
+    padding: 13px 17px;
+
+    border: 0;
+    border-radius: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* Primary Button */
+
+.primary-btn {
+    background: var(--green);
+    color: #fff;
+}
+
+
+/* Secondary Button */
+
+.secondary-btn {
+    background: #fff;
+    color: var(--green);
+
+    border: 1px solid #b9dfd3 !important;
+}
+
+
+/* Dark Button */
+
+.dark-btn {
+    background: var(--navy);
+    color: #fff;
+}
+
+
+/* Status Message */
+
+.status {
+    min-height: 18px;
+
+    margin: -25px 0 20px;
+
+    color: var(--green);
+
+    font-size: 13px;
+}
+
+
+/* ================
+   11. LIVE PREVIEW PANEL
+================ */
+
+.preview-panel {
+    padding: 20px;
+
+    background: #fff;
+
+    border: 1px solid var(--line);
+    border-radius: 20px;
+
+    position: sticky;
+    top: 104px;
+}
+
+
+/* Preview Heading */
+
+.preview-top h2 {
+    font-size: 20px;
+}
+
+
+/* Preview Label */
+
+.preview-top span {
+    padding: 9px 13px;
+
+    background: #fff5d9;
+    color: #7b6200;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+/* Preview Stage */
+
+.preview-stage {
+    min-height: 700px;
+
+    margin-top: 17px;
+    padding: 22px;
+
+    background: #eef1f3;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: auto;
+}
+
+
+/* ================
+   12. A4 DOCUMENT
+================ */
+
+.a4 {
+    width: 794px;
+    min-width: 794px;
+    height: 1123px;
+    position: relative;
+
+    padding: 32px;
+
+    background: #fff;
+    color: #111;
+
+    box-shadow: 0 10px 28px #0002;
+
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+}
+
+
+/* A4 Border */
+
+.a4-border {
+    height: 100%;
+
+    padding: 26px 50px;
+
+    border: 1px solid #333;
+
+    position: relative;
+}
+
+
+/* ================
+   13. UNIVERSITY HEADER
+================ */
+
+.uni-logo {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+}
+
+.uni-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.uni-bn {
+    text-align: center;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+.uni-ar {
+    margin-top: 2px;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+
+.uni-en {
+    margin-top: 2px;
+
+    text-align: center;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
+/* Document Main Title */
+
+.a4 h3 {
+    margin: 28px 0;
+
+    text-align: center;
+
+    font-size: 18px;
+}
+
+
+/* ================
+   14. COURSE / TOPIC INFORMATION
+================ */
+
+.info-table {
+    width: 94%;
+    margin: 0 auto;
+}
+
+.info-table > div {
+    display: flex;
+    align-items: flex-start;
+    margin: 9px 0;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.info-table > div > b {
+    width: 150px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.info-table > div > span {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.info-table em {
+    font-style: normal;
+    white-space: normal !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+/* ================
+   15. SUBMITTED TO / TEACHER
+================ */
+
+.submitted-to {
+    margin-top: 27px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+.teacher-box {
+    width: 250px;
+    min-height: 65px;
+
+    margin: 8px auto 0;
+    padding: 8px;
+
+    border: 1px solid #777;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.teacher-box span {
+    margin-top: 2px;
+
+    font-size: 11px;
+}
+
+
+/* ================
+   16. SUBMITTED BY / STUDENT
+================ */
+
+.submitted-by {
+    margin-top: 26px;
+
+    font-size: 13px;
+}
+
+
+.student-table {
+    width: 78%;
+
+    margin-top: 8px;
+}
+
+
+.student-table > div {
+    display: grid;
+
+    grid-template-columns: 120px 1fr;
+
+    margin: 8px 0;
+}
+
+
+/* ================
+   17. DATE & REMARK
+================ */
+
+.date-row {
+    position: absolute;
+
+    left: 50px;
+    bottom: 53px;
+
+    font-size: 12px;
+}
+
+
+.remark {
+    width: 105px;
+    height: 53px;
+
+    position: absolute;
+
+    right: 40px;
+    bottom: 38px;
+
+    padding: 4px;
+
+    border: 1px solid #777;
+
+    font-size: 9px;
+}
+
+
+/* ================
+   18. GROUP PROJECT
+================ */
+
+.member-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+
+.member-box {
+    min-height: 68px;
+
+    padding: 8px;
+
+    border: 1px solid #777;
+
+    font-size: 11px;
+}
+
+
+.member-box b {
+    display: block;
+
+    margin-bottom: 4px;
+}
+
+
+.group-submit {
+    margin-top: 26px;
+
+    font-size: 13px;
+}
+
+
+/* ================
+   19. LAB INDEX
+================ */
+
+.index-meta {
+    margin: 0 0 15px;
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+.index-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 9.5px;
+}
+
+
+.index-table th,
+.index-table td {
+    height: 39px;
+
+    padding: 6px 4px;
+
+    border: 1px solid #555;
+
+    text-align: center;
+}
+
+
+.index-table th {
+    font-weight: bold;
+}
+
+
+.index-table td:nth-child(3) {
+    text-align: left;
+}
+
+
+/* ================
+   20. LAB INDEX FORM ROW
+================ */
+
+.index-row {
+    display: grid;
+
+    grid-template-columns: 55px 1fr 1.8fr 40px;
+
+    gap: 6px;
+
+    margin: 7px 0;
+}
+
+
+.index-row input {
+    padding: 9px 8px !important;
+
+    font-size: 12px !important;
+}
+
+
+/* Remove Row Button */
+
+.remove-row {
+    background: #fee;
+    color: #a33;
+
+    border: 0;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* ================
+   21. TABLET RESPONSIVE
+================ */
+
+@media (max-width: 980px) {
+
+    .workspace-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-panel {
+        position: static;
+    }
+
+    .type-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* ================
+   22. MOBILE RESPONSIVE
+================ */
+
+@media (max-width: 650px) {
+
+    /* Topbar */
+
+    .topbar {
+        padding: 0 14px;
+    }
+
+
+    /* Brand */
+
+    .brand-title {
+        font-size: 18px;
+    }
+
+    .brand-subtitle {
+        font-size: 9px;
+    }
+
+
+    /* Workspace Header */
+
+    .workspace-head {
+        align-items: flex-start;
+    }
+
+    .workspace-head h1 {
+        font-size: 22px;
+    }
+
+
+    /* Login Pill */
+
+    .pill {
+        display: block;
+
+        width: max-content;
+
+        margin-top: 7px;
+    }
+
+
+    /* Type Cards */
+
+    .type-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Two Column */
+
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Preview */
+
+    .preview-stage {
+        padding: 8px;
+
+        justify-content: flex-start;
+    }
+
+
+    /* A4 Mobile Scale */
+
+    .a4 {
+        transform: scale(0.62);
+
+        transform-origin: top left;
+
+        margin-right: -300px;
+        margin-bottom: -420px;
+    }
+
+
+    .preview-panel {
+        padding: 12px;
+    }
+
+}
+
+
+/* ================
+   23. PRINT / SAVE AS PDF
+================ */
+
+@media print {
+
+    /* Hide Website UI */
+
+    body {
+        background: #fff;
+    }
+
+    .topbar,
+    .workspace-head,
+    .type-section,
+    .forms,
+    .preview-top {
+        display: none !important;
+    }
+
+
+    /* Main Container */
+
+    .container {
+        width: auto;
+        margin: 0;
+    }
+
+
+    /* Workspace */
+
+    .workspace-grid {
+        display: block;
+    }
+
+
+    /* Preview */
+
+    .preview-panel {
+        display: block;
+
+        padding: 0;
+
+        border: 0;
+
+        position: static;
+    }
+
+
+    .preview-stage {
+        padding: 0;
+
+        background: #fff;
+
+        display: block;
+
+        overflow: visible;
+    }
+
+
+    /* A4 Print Size */
+
+    .a4 {
+        width: 210mm;
+        min-width: 210mm;
+        height: 297mm;
+
+        padding: 8mm;
+
+        transform: none !important;
+
+        box-shadow: none;
+    }
+
+
+    .a4-border {
+        padding: 7mm 13mm;
+    }
+
+
+    /* A4 Page Setup */
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+}
+/* 
+   FOOTER
+ */
+
+.site-footer {
+    margin-top: 50px;
+    background: #111827;
+    color: #d1d5db;
+    border-top: 1px solid #374151;
+}
+
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 45px 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+
+.footer-section h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+
+
+.footer-section p {
+    margin: 0 0 10px;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+.developer-name {
+    color: #ffffff;
+    font-size: 17px !important;
+    font-weight: 700;
+}
+
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.footer-section li {
+    margin-bottom: 9px;
+    font-size: 14px;
+}
+
+
+.footer-section li::before {
+    content: "✓";
+    margin-right: 8px;
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+
+/* Footer Bottom */
+
+.footer-bottom {
+    border-top: 1px solid #374151;
+
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 18px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+.footer-bottom strong {
+    color: #ffffff;
+}
+
+
+/* 
+   RESPONSIVE FOOTER
+ */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        padding: 35px 20px;
+    }
+
+
+    .footer-bottom {
+        padding: 18px 20px;
+
+        flex-direction: column;
+        gap: 8px;
+
+        text-align: center;
+    }
+
+}
+.watermark-logo {
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    object-fit: contain;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0.10;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+@media print {
+
+    /* পুরো website থেকে শুধু preview page দেখাবে */
+    body * {
+        visibility: hidden !important;
+    }
+
+    /* শুধু A4 preview এবং তার ভেতরের content print হবে */
+    #a4,
+    #a4 * {
+        visibility: visible !important;
+    }
+
+    /* A4 page-কে print-এর শুরুতে রাখবে */
+    #a4 {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Website-এর footer/about কোনোভাবেই print হবে না */
+    footer,
+    .footer,
+    .about,
+    #footer,
+    #about {
+        display: none !important;
+    }
+
+    /* A4 size */
+    .a4 {
+        width: 210mm !important;
+        min-width: 210mm !important;
+        height: 297mm !important;
+        padding: 8mm !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 0;
+    }
+}
+/* 
+   COMMON BOTTOM SECTION
+ */
+
+.a4-border {
+    position: relative;
+    overflow: hidden;
+
+    /* নিচের Date + Remark + Image-এর জন্য জায়গা */
+    padding-bottom: 135px;
+}
+
+
+/* Bottom wrapper */
+
+.common-bottom {
+    position: absolute;
+
+    left: 50px;
+    right: 50px;
+    bottom: 8px;
+
+    z-index: 5;
+}
+
+
+/* Date + Remark area */
+
+.bottom-info {
+    position: relative;
+
+    width: 100%;
+    height: 55px;
+}
+
+
+/* Date */
+
+.bottom-date {
+    position: absolute;
+
+    left: 0;
+    bottom: 5px;
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+
+/* Date value */
+
+.bottom-date span {
+    font-weight: normal;
+}
+
+
+/* Remark box */
+
+.bottom-remark {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 170px;
+    height: 52px;
+
+    border: 1px solid #555;
+
+    padding: 7px;
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 12px;
+
+    background: #fff;
+}
+
+
+/* Campus image */
+
+.bottom-campus-image {
+    display: block;
+
+    width: 100%;
+    height: 65px;
+
+    object-fit: contain;
+    object-position: center bottom;
+
+    margin: 0 auto;
+}
+.index-student-info {
+    display: none;
+
+    width: 410px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-bottom: 8px;
+
+    font-family: "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.4;
+
+    transform: translateX(80px);
+}
+
+.index-student-info div {
+    display: grid;
+    grid-template-columns: 110px 300px;
+    margin: 2px 0;
+}
+
+.index-student-info b {
+    font-weight: bold;
+    text-align: left;
+}
+
+.index-student-info span {
+    text-align: left;
+    white-space: nowrap;
+}
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons i {
+    font-size: 30px;
+    color: rgb(38, 38, 122);
+}
+.feedback-box h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.feedback-box i{
+    font-size: 18px;
+    color: rgb(38, 38, 122);
+}
+/* 
+   A4 PREVIEW - BOLD SETTINGS
+ */
+
+/* Assignment Topic */
+#pStudentName,
+#pStudentId,
+#pSection,
+#pSemester,
+#pDepartment,
+#pTopic {
+    font-weight: bold !important;
+    font-style: normal !important;
+    font-size: 18px;
+}
+
+/* Lab Report */
+#pExperimentNo,
+#pExperimentName {
+    font-weight: bold !important;
+    font-style: normal !important;
+    font-size: 18px;
+}
+ /* Course */
+#pCourseCode,
+#pCourseDepartment,
+#pCourseTitle {
+    font-size: 16px;
+}
+
+/* Group Project */
+#gTopic,
+#gCourseCode,
+#gCourseTitle {
+    font-weight: bold !important;
+    font-style: normal !important;
+}
+#gCourseDepartment {
+    font-size: 16px;
+}
+
+/* Lab Index - Student Information */
+#indexStudentName,
+#indexStudentId,
+#indexStudentSemester,
+#indexStudentSection,
+#indexStudentDepartment {
+    font-weight: bold !important;
+    font-style: normal !important;
+}
+
+/* Teacher Name - Only Name Bold */
+#pTeacher,
+#gTeacher,
+#indexTeacher {
+    font-weight: bold !important;
+    font-style: normal !important;
+    font-size: 18px;
+}
+
+/* Teacher Designation & Department - Normal */
+#pDesignation,
+#pTeacherDept,
+#gDesignation,
+#gTeacherDept,
+#indexTeacherDesignation,
+#indexTeacherDept {
+    font-weight: normal !important;
+    font-style: normal !important;
+}
