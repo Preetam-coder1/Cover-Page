@@ -1506,3 +1506,7 @@ select {
     font-weight: normal !important;
     font-style: normal !important;
 }
+/* Lab Index - Student Information Position */
+.index-student-info {
+    margin-left: 320px;
+}
